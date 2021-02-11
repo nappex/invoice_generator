@@ -1,0 +1,32 @@
+customer:
+    customer_name:      Lahudky s.r.o.
+    customer_street:    Hladnovská 13
+    customer_city:      Ostrava
+    customer_state:     Česká republika
+    customer_zip:       41-303
+    customer_ico:       01645832
+    customer_dic:       CZ5252195885
+
+symbol_specific:        '-'
+symbol_const:           '-'
+deposit:                0
+
+invoice_subjects:
+    - subject:  • Údržba vody na slezske harte za 12. měsíc 2019
+      quantity:         1
+      quantity_unit:    '-'
+      tax_rate:         21
+      netto_price:      100
+
+    - subject:  • Prodej vody 25L
+      quantity:         1
+      quantity_unit:    '-'
+      tax_rate:         10
+      netto_price:      100
+
+    - subject:  • Prodej limonady
+      quantity:         1
+      quantity_unit:    '-'
+      tax_rate:         0
+      netto_price:      100
+

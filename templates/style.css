@@ -1,0 +1,152 @@
+@media print {
+    @page {
+        size: a4 portrait;
+        margin: 5mm;
+
+    }
+
+
+    body {
+        color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+        font-family: 'Times New Roman', Times, serif;
+        line-height: 1.5;
+        font-size: 10pt;
+        /* change the margins as you want them to be. */
+    }
+
+    hr.break {
+        display: block;
+        border: 0;
+        page-break-after: always;
+    }
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 10pt;
+    line-height: 1.5;
+}
+
+
+hr {
+    page-break-after: always;
+}
+
+table.tab_1 td {
+    width: 25%;
+}
+
+table.tab_3 td {
+    width: 25%;
+}
+
+table.tab_4 td {
+    width: 50%;
+}
+
+br.without {
+    display: block;
+    /* makes it have a width */
+    content: "";
+    /* clears default height */
+    margin-top: 1mm;
+    /* change this to whatever height you want it */
+}
+
+br.big {
+    display: block;
+    /* makes it have a width */
+    content: "";
+    /* clears default height */
+    margin-top: 5cm;
+    /* change this to whatever height you want it */
+}
+
+td.padding_l {
+    padding-left: 45pt;
+}
+
+td.nr_invoice {
+    text-align: center;
+    border-style: solid;
+    border-radius: 6pt 6pt 6pt 6pt;
+    font-size: 12pt;
+    font-weight: bold;
+    border-color: black;
+}
+
+table {
+    border-color: black;
+}
+
+table.tab_1 {
+    border-style: solid;
+    border-width: 1pt;
+    margin-top: 0%;
+    padding-top: 0%;
+    border-spacing: 0;
+    border-radius: 8pt;
+    width: 100%;
+}
+
+table.tab_2 {
+    margin-top: 1mm;
+    border-spacing: 0;
+    width: 100%;
+}
+
+table.tab_3 {
+    border-style: solid;
+    border-width: 1pt;
+    border-spacing: 0;
+    border-radius: 8pt;
+    width: 48%;
+}
+
+table.tab_4 {
+    border-style: solid;
+    border-width: 1pt;
+    border-spacing: 0;
+    border-radius: 8pt;
+    width: 50%;
+}
+
+tr.border_all td {
+    border: 1pt solid black;
+    border-radius: 8pt;
+    text-align: center;
+
+}
+
+.border_l {
+
+    border-left-style: solid;
+    border-width: 1pt;
+}
+
+.border_top {
+
+    border-top-style: solid;
+    border-width: 1pt;
+}
+
+.border_bottom {
+    border-bottom-style: solid;
+    border-width: 1pt;
+}
+
+.align_c {
+    text-align: center;
+}
+
+.center_decor {
+    text-align: center;
+    text-decoration-line: overline;
+    width: 50%;
+    font-size: 12pt;
+}
+
+.align_r {
+    text-align: right;
+}

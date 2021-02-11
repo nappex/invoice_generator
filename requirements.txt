@@ -1,0 +1,3 @@
+PyYAML
+WeasyPrint
+jinja2

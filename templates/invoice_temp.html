@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        @media print {
+            @page {
+                size: a4 portrait;
+                margin: 5mm;
+
+            }
+
+
+            body {
+                color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+                font-family: 'Times New Roman', Times, serif;
+                line-height: 1.5;
+                font-size: 10pt;
+                /* change the margins as you want them to be. */
+            }
+
+            hr.break {
+                display: block;
+                border: 0;
+                page-break-after: always;
+            }
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 10pt;
+            line-height: 1.5;
+        }
+
+
+        hr {
+            page-break-after: always;
+        }
+
+        table.tab_1 td {
+            width: 25%;
+        }
+
+        table.tab_3 td {
+            width: 25%;
+        }
+
+        table.tab_4 td {
+            width: 50%;
+        }
+
+        br.without {
+            display: block;
+            /* makes it have a width */
+            content: "";
+            /* clears default height */
+            margin-top: 1mm;
+            /* change this to whatever height you want it */
+        }
+
+        br.big {
+            display: block;
+            /* makes it have a width */
+            content: "";
+            /* clears default height */
+            margin-top: 5cm;
+            /* change this to whatever height you want it */
+        }
+
+        td.padding_l {
+            padding-left: 45pt;
+        }
+
+        td.nr_invoice {
+            text-align: center;
+            border-style: solid;
+            border-radius: 6pt 6pt 6pt 6pt;
+            font-size: 12pt;
+            font-weight: bold;
+            border-color: black;
+        }
+
+        table {
+            border-color: black;
+        }
+
+        table.tab_1 {
+            border-style: solid;
+            border-width: 1pt;
+            margin-top: 0%;
+            padding-top: 0%;
+            border-spacing: 0;
+            border-radius: 8pt;
+            width: 100%;
+        }
+
+        table.tab_2 {
+            margin-top: 1mm;
+            border-spacing: 0;
+            width: 100%;
+        }
+
+        table.tab_3 {
+            border-style: solid;
+            border-width: 1pt;
+            border-spacing: 0;
+            border-radius: 8pt;
+            width: 48%;
+        }
+
+        table.tab_4 {
+            border-style: solid;
+            border-width: 1pt;
+            border-spacing: 0;
+            border-radius: 8pt;
+            width: 50%;
+        }
+
+        tr.border_all td {
+            border: 1pt solid black;
+            border-radius: 8pt;
+            text-align: center;
+
+        }
+
+        .border_l {
+
+            border-left-style: solid;
+            border-width: 1pt;
+        }
+
+        .border_top {
+
+            border-top-style: solid;
+            border-width: 1pt;
+        }
+
+        .border_bottom {
+            border-bottom-style: solid;
+            border-width: 1pt;
+        }
+
+        .align_c {
+            text-align: center;
+        }
+
+        .center_decor {
+            text-align: center;
+            text-decoration-line: overline;
+            width: 50%;
+            font-size: 12pt;
+        }
+
+        .align_r {
+            text-align: right;
+        }
+        .align_l {
+            text-align: left;
+        }
+
+        .pad_top_bot {
+            padding-top: 1mm;
+            padding-bottom: 1mm;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h2 style="margin-bottom: 0%; padding-bottom: 0%;">Faktura - daňový doklad</h2>
+
+
+    <table class="tab_1">
+        <tr>
+            <td style="font-size: 11pt;"><strong>Dodavatel:</strong></td>
+            <td></td>
+            <td class="border_l align_c" style="font-size: 11pt;"><strong>Číslo faktury:</strong></td>
+            <td class="nr_invoice">{{ invoice_number }}</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="align_c">{{ supplier_name }}</td>
+            <td class="padding_l border_l">Variabilní symbol:</td>
+            <td>{{ invoice_number }}</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="align_c">{{ supplier_street }}, {{ supplier_city }}</td>
+            <td class="padding_l border_l">Konstatní symbol:</td>
+            <td>{{ symbol_const }}</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="align_c">{{ supplier_zip }}, {{ supplier_state }}</td>
+            <td class="padding_l border_l">Specifický symbol:</td>
+            <td>{{ symbol_specific }}</td>
+        </tr>
+        <tr>
+            <td class="align_c">IČ: {{ supplier_ico }}</td>
+            <td class="align_c">DIČ: {{ supplier_dic }}</td>
+            <td class="padding_l border_l">Objednávka č.:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="align_c">tel.: {{ supplier_phone }}</td>
+            <td class="align_c">email: {{ supplier_email }}</td>
+            <td class="padding_l border_l">Zakázka č.:</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><em><u>Bankovní spojení:</u></em></td>
+            <td></td>
+            <td class="border_l border_top" style="font-size: 11pt;"><strong>Odběratel:</strong></td>
+            <td class="border_top"></td>
+        </tr>
+        <tr>
+            <td class="padding_l">Majitel účtu:</td>
+            <td>{{ supplier_name }}</td>
+            <td colspan="2" class="align_c border_l">{{ customer_name }}</td>
+        </tr>
+        <tr>
+            <td class="padding_l">Peněžní ústav:</td>
+            <td>{{ supplier_bank }}</td>
+            <td colspan="2" class="align_c border_l">{{ customer_street }}, {{ customer_city }}</td>
+        </tr>
+        <tr>
+            <td class="padding_l">Číslo účtu:</td>
+            <td>{{ supplier_bank_acc }}</td>
+            <td colspan="2" class="align_c border_l">{{ customer_zip }}, {{ customer_state }}</td>
+        </tr>
+        <tr>
+            <td class="padding_l">SWIFT kód:</td>
+            <td>{{ supplier_swift }}</td>
+            <td class="align_c border_l">IČ: {{ customer_ico }}</td>
+            <td class="align_c">DIČ: {{ customer_dic }}</td>
+        </tr>
+        <tr>
+            <td class="padding_l">IBAN kód:</td>
+            <td>{{ supplier_iban }}</td>
+            <td class="border_l border_top" colspan="2"><em><u>Dodací a platební podmínky:</u></em></td>
+            <!--<td colspan="2" class="align_c border_l"></td>-->
+        </tr>
+        <tr>
+            <td class="border_top">Dodací list:</td>
+            <td class="border_top"></td>
+            <td class="align_c border_l" style="font-size: 12pt;"><strong>Datum splatnosti:</strong></td>
+            <td class="nr_invoice">{{ date_due }}</td>
+        </tr>
+        <tr>
+            <td>Způsob dopravy:</td>
+            <td></td>
+            <td class="align_r border_l">Forma úhrady:</td>
+            <td class="align_c">Převodním příkazem</td>
+        </tr>
+        <tr>
+            <td>Příjemce:</td>
+            <td></td>
+            <td class="align_r border_l">Datum uskutečnění plnění:</td>
+            <td class="align_c">{{ date_fill }}</td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+            <td class="align_r border_l">Datum vystavení:</td>
+            <td class="align_c">{{ date_issue }}</td>
+        </tr>
+    </table>
+
+
+    <h3 style="margin: 0; padding: 0;"><u>Fakturujeme Vám následující položky:</u></h3>
+
+
+    <table class="tab_2">
+        <tr class="border_all">
+            <td style="width: 50%;">Označení dodávky (popis)</td>
+            <td>Množství</td>
+            <td class="pad_top_bot">mj</td>
+            <td>Cena/mj [Kč]</td>
+            <td>Cena bez DPH</td>
+            <td>DPH %</td>
+            <td>Cena s DPH</td>
+        </tr>
+
+
+        {% for item in invoice_subjects %}
+        <tr>
+            <td style="width: 50%;">{{ item.subject }}</td>
+            <td class="align_c">{{ item.quantity|default("-") }}</td>
+            <td class="align_c">{{ item.quantity_unit|default("-") }}</td>
+
+            {% set netto_price = item.netto_price|default("-") %}
+            {% if netto_price == "-" %}
+            <td class="align_c">{{ netto_price }}</td>
+            {% else %}
+            <td class="align_c">{{ "%.2f"|format(netto_price) }}</td>
+            {% endif %}
+
+            <td class="align_c">{{ "%.2f"|format(item.sum_netto_price|default(0)) }}</td>
+            <td class="align_c">{{ item.tax_rate|default("") }}%</td>
+            <td class="align_c">{{ "%.2f"|format(item.brutto_price|default(0)) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    <br style="margin: 6mm;">
+
+
+    <table class="tab_3" style="float: left; margin-right: 1mm;">
+        <tr>
+            <td colspan="4" class="border_bottom">Rekapitulace DPH v Kč:</td>
+        </tr>
+        <tr>
+            <td class="align_c border_bottom">Sazba</td>
+            <td class="align_c border_bottom border_l">Předplatba<br>s DPH</td>
+            <td class="align_c border_bottom border_l">Základ<br>DPH</td>
+            <td class="align_c border_bottom border_l">DPH</td>
+
+        </tr>
+        {% for item in tax_table %}
+        <tr>
+            <td class="align_c">{{ item.tax_rate }}%</td>
+            <td class="align_c border_l">0.00</td>
+            <td class="align_c border_l">{{ "%.2f"|format(item.sum_netto_price) }}</td>
+            <td class="align_c border_l">{{ "%.2f"|format(item.sum_tax) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    <table class="tab_4" style="display: inline-table;">
+        <tr>
+            <td><br></td>
+        </tr>
+        <tr>
+            <td class="align_c">Zaplacená záloha:</td>
+            <td>{{ "%.2f"|format(deposit) }}</td>
+        </tr>
+
+        <tr>
+            <td><br></td>
+        </tr>
+        <tr>
+            <td class="align_c" style="font-size: 12pt;"><strong>Celkem k úhradě:</strong></td>
+            <td class="nr_invoice">{{ "{:,.2f}".format(brutto_price) }} Kč</td>
+        </tr>
+        <tr>
+            <td><br></td>
+        </tr>
+    </table>
+
+    <br>
+    <br>
+
+    <div>Úrok z prodlení činí 0,050 % za každý den prodlení platby.</div>
+    <div>Fakturu vystavil: {{ signature_name }}</div>
+    <br class="big">
+    <table style="width: 100%;">
+        <tr>
+            <td class="center_decor">Fakturu převzal a s údaji souhlasil</td>
+            <td class="center_decor">Razítko a podpis</td>
+        </tr>
+    </table>
+</body>
+
+
+</html>

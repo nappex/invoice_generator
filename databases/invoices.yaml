@@ -1,0 +1,33 @@
+new_customer:
+    Dodavka oleje:
+        symbol_specific:        '-'
+        symbol_const:           '-'
+        deposit:                0
+        invoice_subjects:
+            - subject:  • Dodávka oleje za {{quarter}}.Q {{year}}
+              quantity:         1
+              quantity_unit:    '-'
+              tax_rate:         10
+              netto_price:      1000
+
+    Udrzba auta:
+        symbol_specific:        '-'
+        symbol_const:           '-'
+        deposit:                0
+        invoice_subjects:
+            - subject:  • Údržba auta za období {{date}}
+              quantity:         1
+              quantity_unit:    '-'
+              tax_rate:         21
+              netto_price:      1000
+
+    Pronajem auta:
+        symbol_specific:        '-'
+        symbol_const:           '-'
+        deposit:                0
+        invoice_subjects:
+            - subject:  • Pronájem auta za období {{date}}
+              quantity:         1
+              quantity_unit:    '-'
+              tax_rate:         21
+              netto_price:      3000
