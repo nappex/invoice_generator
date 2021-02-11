@@ -85,7 +85,7 @@ def get_payment_info(customer_name):
                 if invoice_name == "Dodavka oleje":
                     quarter = positive_int("Kvartál: ")
                     text = text.replace("{{quarter}}", str(quarter))
-                    text = text.replace("{{year}}", d.year)
+                    text = text.replace("{{year}}", str(d.year))
 
                 elif invoice_name == "Udrzba auta":
                     d = d.replace(month=d.month - 1).strftime('%m/%Y')
